@@ -16,7 +16,7 @@
       <label for="exampleInputFile">File input</label>
       <input type="file" class="form-control-file" id="exampleInputFile">
     </fieldset>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Publish</button>
   </form>
 </div>
 <!--div class="container">
