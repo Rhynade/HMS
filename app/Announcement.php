@@ -13,7 +13,7 @@ class Announcement extends Model
     }
 
     public function user(){
-    	return $this->belongsTo(User::class);
+    	return $this->hasOne('App\User');
 	}
 
 	public function addAnnouncement(Announcement $announcement, $userId)
