@@ -5,7 +5,7 @@
 	@if (isset($announcements))
 	<ul>
 	@foreach ($announcements->all() as $announcement)
-		<li>{{ $announcement }}</li>
+		<li>{{ $announcement->body }}</li>
 	@endforeach
 	</ul>
 

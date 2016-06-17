@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Announcement;
+use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
@@ -23,7 +24,8 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        return view('announcement/display');
+        $announcements = Announcement::all();
+        return view('announcement/display',compact('announcements'));
     }
 
     public function publish(Request $request) 
@@ -36,9 +38,18 @@ class AnnouncementController extends Controller
 
         //     ]);
         
-        $announcements = Announcement::all();
 
-        return view('announcement/display', compact('announcements'));
+        // $announcements = Announcement::all();
+
+        // return view('announcement/display', compact('announcements'));
+        $announcement = new Announcement;
+        $announcement->title = $request->title;
+        $announcement->body = $request->body;
+
+        $announcement->save();
+
+        $announcements = Announcement::all();
+        return view('announcement/display',compact('announcements'));
     }
 
     public function create(){
