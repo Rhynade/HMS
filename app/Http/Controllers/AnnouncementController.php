@@ -26,7 +26,9 @@ class AnnouncementController extends Controller
     public function index()
     {
         $announcements = Announcement::all()->sortByDesc('created_at')->take(5);
-
+        foreach($announcements as $announcement){
+            $announcement->username = $announcement->username();
+        }
         return view('announcement/display',compact('announcements'));
     }
 
@@ -36,6 +38,7 @@ class AnnouncementController extends Controller
 
 
         $user = Auth::user();
+
         $announcement = new Announcement;
         $announcement->title = $request->title;
         $announcement->body = $request->body;
@@ -44,13 +47,17 @@ class AnnouncementController extends Controller
         $announcement->save();
 
         $announcements = Announcement::all()->sortByDesc('created_at');
+        foreach($announcements as $announcement){
+            $announcement->username = $announcement->user->name;
+        }
         
-        return view('announcement/display',compact('announcements'));
+        return view('announcement/display',compact('announcements', 'name'));
     }
 
     public function create(){
         
         return view('announcement/form');
     }
+
 
 }

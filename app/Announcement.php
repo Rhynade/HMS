@@ -13,8 +13,12 @@ class Announcement extends Model
     }
 
     public function user(){
-    	return $this->hasOne('App\User');
+    	return $this->belongsTo('App\User');
 	}
+
+    public function username(){
+        return $this->user->name;
+    }
 
 	public function addAnnouncement(Announcement $announcement, $userId)
     {

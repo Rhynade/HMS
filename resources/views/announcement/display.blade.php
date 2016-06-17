@@ -10,9 +10,8 @@
 			<div class="panel panel-default">
 					<div class="panel-body">
 					<p>{{ $announcement -> body }}</p>
-
 					<br>
-					<p>{{ $announcement -> user_id }}</p>
+					<p>{{ $announcement -> username }}</p>
 					<p>{{ $announcement -> created_at }}</p>
 					</div>
 			</div>
