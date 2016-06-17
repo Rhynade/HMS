@@ -11,12 +11,20 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::auth();
 
-Route::get('/announcement', 'AnnouncementController@index');
+Route::get('/announcement/display', 'AnnouncementController@index');
+
+Route::get('/announcement/form', 'AnnouncementController@create');
+
+
+Route::post('/announcement/display', 'AnnouncementController@publish');
 
 Route::get('/maintenance_report', 'MaintenanceController@index');
+
+Route::get('/room_draw', 'RoomDrawController@index');

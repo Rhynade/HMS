@@ -2,15 +2,17 @@
 
 @section('content')
 <div class="container">
-  <form>
+<h3>Publish An Announcement</h3>
+  <form method="POST" action="/announcement/display">
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <fieldset class="form-group">
       <label for="enterTitle">Title</label>
-      <input type="text" class="form-control" id="enterTitle" placeholder="Enter Title">
+      <textarea name="title" class="form-control" id="enterTitle" rows="1"></textarea>
     </fieldset>
 
     <fieldset class="form-group">
       <label for="exampleTextarea">Text</label>
-      <textarea class="form-control" id="exampleTextarea" rows="10"></textarea>
+      <textarea name="body" class="form-control" id="exampleTextarea" rows="10"></textarea>
     </fieldset>
     <fieldset class="form-group">
       <label for="exampleInputFile">File input</label>
