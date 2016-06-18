@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Maintenance;
+use App\User;
+use Auth;
 use Illuminate\Http\Request;
-
 use App\Http\Requests;
+
 
 class MaintenanceController extends Controller
 {
-    
+
     public function __construct()
     {
         $this->middleware('auth');
@@ -21,6 +24,46 @@ class MaintenanceController extends Controller
      */
     public function index()
     {
-        return view('maintenance');
+
+        // $user = Auth::user();
+        // $report->role_id = $user->role_id;
+
+        // if(role_id==1) {
+
+        //     $reports = Maintenance::get('user_id')->sortByDesc('created_at');
+
+        // }
+
+        // else {
+
+        $reports = Maintenance::all()->sortByDesc('created_at');
+
+        foreach($reports as $report){
+            $report->username = $report->username();
+            $report->currentRoom = $report->currentRoom();
+        }
+
+        return view('maintenance/display',compact('reports'));
+        
+    }
+
+    public function publish(Request $request) 
+    {
+        $user = Auth::user();
+
+        $report = new Maintenance;
+        $report->title = $request->title;
+        $report->faultyArea = $request->faultyArea;
+        $report->description = $request->description;
+        $report->user_id = $user->id;
+
+        $report->save();
+
+        return view('maintenance/received');
+    }
+
+    public function create() 
+    {
+        return view('maintenance/form');
     }
 }

@@ -61,7 +61,16 @@
                             <li><a href="{{ url('/announcement/display') }}">Display</a></li>
                             </ul>
                     </li>
-                    <li><a href="{{ url('/maintenance_report') }}">Maintenance Report</a></li>
+                    <li class="dropdown">
+
+                            <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'
+                            >Maintenance Report</a>
+                            <ul class="dropdown-menu">
+
+                            <li><a href="{{ url('/maintenance/form') }}">Submit</a></li>
+                            <li><a href="{{ url('/maintenance/display') }}">Display</a></li>
+                            </ul>
+                    </li>
                     <li><a href="{{ url('/room_draw') }}">Room Draw</a></li>
 
                     @endif

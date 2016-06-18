@@ -22,9 +22,15 @@ Route::get('/announcement/display', 'AnnouncementController@index');
 
 Route::get('/announcement/form', 'AnnouncementController@create');
 
-
 Route::post('/announcement/display', 'AnnouncementController@publish');
 
-Route::get('/maintenance_report', 'MaintenanceController@index');
+
+Route::get('/maintenance/display', 'MaintenanceController@index');
+
+Route::get('/maintenance/form', 'MaintenanceController@create');
+
+Route::post('maintenance/received', 'MaintenanceController@publish');
+
+
 
 Route::get('/room_draw', 'RoomDrawController@index');

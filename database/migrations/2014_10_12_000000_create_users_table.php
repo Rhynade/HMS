@@ -17,6 +17,9 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('currentRoom')->default('F411');
+            $table->string('defaultRoom')->default('Nil');
+            $table->integer('points')->default(68);
             $table->rememberToken();
             $table->integer('role_id')->default(1);
             $table->timestamps();
