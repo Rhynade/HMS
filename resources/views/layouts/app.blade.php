@@ -51,27 +51,45 @@
                     @if (Auth::guest())
 
                     @else
+
+                    @if(Auth::user()->role_id==7)
                     <li class="dropdown">
 
-                            <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'
-                            >Announcement </a>
-                            <ul class="dropdown-menu">
+                        <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'
+                        >Announcement </a>
+                        <ul class="dropdown-menu">
 
                             <li><a href="{{ url('/announcement/form') }}">Publish</a></li>
                             <li><a href="{{ url('/announcement/display') }}">Display</a></li>
-                            </ul>
+                        </ul>
                     </li>
                     <li class="dropdown">
 
-                            <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'
-                            >Maintenance Report</a>
-                            <ul class="dropdown-menu">
+                        <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'
+                        >Maintenance Report</a>
+                        <ul class="dropdown-menu">
 
                             <li><a href="{{ url('/maintenance/form') }}">Submit</a></li>
                             <li><a href="{{ url('/maintenance/display') }}">Display</a></li>
-                            </ul>
+                        </ul>
                     </li>
                     <li><a href="{{ url('/room_draw') }}">Room Draw</a></li>
+
+                    @else 
+                    <li><a href="{{ url('/announcement/display') }}">Announcement</a></li>
+                    <li class="dropdown">
+
+                        <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'
+                        >Maintenance Report</a>
+                        <ul class="dropdown-menu">
+
+                            <li><a href="{{ url('/maintenance/form') }}">Submit</a></li>
+                            <li><a href="{{ url('/maintenance/display') }}">Display</a></li>
+                        </ul>
+                    </li>
+
+                    <li><a href="{{ url('/room_draw') }}">Room Draw</a></li>
+                    @endif
 
                     @endif
                 </ul>

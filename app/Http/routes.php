@@ -29,7 +29,8 @@ Route::get('/maintenance/display', 'MaintenanceController@index');
 
 Route::get('/maintenance/form', 'MaintenanceController@create');
 
-Route::post('maintenance/received', 'MaintenanceController@publish');
+Route::post('/maintenance/received', 'MaintenanceController@publish');
+
 
 
 

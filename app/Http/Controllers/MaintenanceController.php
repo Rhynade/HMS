@@ -25,45 +25,46 @@ class MaintenanceController extends Controller
     public function index()
     {
 
-        // $user = Auth::user();
-        // $report->role_id = $user->role_id;
+        $user = Auth::user();
+        
+        $roleId = $user->role_id;
 
-        // if(role_id==1) {
 
-        //     $reports = Maintenance::get('user_id')->sortByDesc('created_at');
+        if($roleId==1) {
 
-        // }
+          $reports = Maintenance::where('user_id', '=', $user->id)->get()->sortByDesc('created_at');
 
-        // else {
+      } else {
 
         $reports = Maintenance::all()->sortByDesc('created_at');
-
-        foreach($reports as $report){
-            $report->username = $report->username();
-            $report->currentRoom = $report->currentRoom();
-        }
-
-        return view('maintenance/display',compact('reports'));
-        
     }
 
-    public function publish(Request $request) 
-    {
-        $user = Auth::user();
-
-        $report = new Maintenance;
-        $report->title = $request->title;
-        $report->faultyArea = $request->faultyArea;
-        $report->description = $request->description;
-        $report->user_id = $user->id;
-
-        $report->save();
-
-        return view('maintenance/received');
+    foreach($reports as $report){
+        $report->username = $report->username();
+        $report->currentRoom = $report->currentRoom();
     }
 
-    public function create() 
-    {
-        return view('maintenance/form');
-    }
+    return view('maintenance/display',compact('reports'));
+
+}
+
+public function publish(Request $request) 
+{
+    $user = Auth::user();
+
+    $report = new Maintenance;
+    $report->title = $request->title;
+    $report->faultyArea = $request->faultyArea;
+    $report->description = $request->description;
+    $report->user_id = $user->id;
+
+    $report->save();
+
+    return view('maintenance/received');
+}
+
+public function create() 
+{
+    return view('maintenance/form');
+}
 }

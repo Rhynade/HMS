@@ -12,8 +12,6 @@
 				<th>Name</th>
 				<th>Room Number</th>
 				<th>Title</th>
-				<th>Faulty Area</th>
-				<th>Description</th>
 				<th>Date</th>
 			</tr>
 		</thead>
@@ -24,10 +22,8 @@
 				
 				<td>{{ $report-> username }}</td>
 				<td>{{ $report -> currentRoom }}</td>
-				<td>{{ $report -> title }}</td>
-				<td>{{ $report -> faultyArea }}</td>
-				<td>{{ $report -> description }}</td>
-				<td>{{ $report -> created_at }}</td>
+				<td><a href="">{{ $report -> title }}</td></a>
+				<td>{{ $report -> created_at -> format('Y-m-d')}}</td>
 			</tr>
 		</tbody>
 
