@@ -29,14 +29,22 @@ class RoomDrawController extends Controller
     }
 
     public function bid(Request $request)
-    {
+    {   
+        //Identify method
+        $method = $request -> method;
         //Identify current bidder
         $bidder = Auth::user();
 
         //Identify room bidded for
-        $roomid = $request -> id;
-        $room = RoomDraw::find($roomid);
-        $roomcurrentuser = $room -> user_id;
+        $roomid = $request -> identity;
+        if (isset($roomid)){
+            $room = RoomDraw::find($roomid);
+        }
+        else{
+            $roomid = $request -> id;
+            $room = Roomdraw::find($roomid);
+            $roomcurrentuser = $room -> user_id;
+        }
 
         //Bid count of current bidder
         $bidcount = $bidder -> bidcount;
@@ -48,7 +56,25 @@ class RoomDrawController extends Controller
         $bidderpoints = $bidder -> points;
         $currentpoints = $room -> points;
 
-        if ($roomcurrentuser == 0 && $bidcount==1){
+        if(isset($method)){
+            $bidder -> bidcount +=1;
+            $bidder -> biddedRoom = '';
+            $bidder -> save();
+
+            $room -> user_id = 0;
+            $room -> name = '';
+            $room -> points = 0;
+            $room -> save();
+
+            $userid = $bidder -> id;
+            $roomdraws = Roomdraw::all();
+
+            \Session::flash('message', 'Previous bid has been withdrawn. Please make a new bid');
+            return view('roomdraw', compact('roomdraws','userid'));
+
+        }
+
+        elseif ($roomcurrentuser == 0 && $bidcount==1){
 
             $room -> user_id = $bidder -> id;
             $room -> name = $bidder -> name;
