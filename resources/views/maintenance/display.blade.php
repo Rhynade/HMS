@@ -22,7 +22,7 @@
 				
 				<td>{{ $report-> username }}</td>
 				<td>{{ $report -> currentRoom }}</td>
-				<td><a href="">{{ $report -> title }}</td></a>
+				<td><a href="/maintenance/display/{{$report->id}}">{{ $report -> title }}</a></td>
 				<td>{{ $report -> created_at -> format('Y-m-d')}}</td>
 			</tr>
 		</tbody>

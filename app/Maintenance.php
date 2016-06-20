@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Maintenance extends Model
 {
+    protected $table = 'maintenance';
     protected $fillable = ['title','faultyArea', 'description'];
 
     public function by(User $user){

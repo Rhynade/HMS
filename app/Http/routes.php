@@ -33,6 +33,7 @@ Route::get('/maintenance/form', 'MaintenanceController@create');
 
 Route::post('/maintenance/received', 'MaintenanceController@publish');
 
+Route::get('/maintenance/display/{report}', 'MaintenanceController@show');
 
 
 //RoomDraw

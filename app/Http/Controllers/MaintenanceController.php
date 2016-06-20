@@ -63,6 +63,11 @@ public function publish(Request $request)
     return view('maintenance/received');
 }
 
+public function show(Maintenance $report) {
+
+    return view('maintenance/single', compact('report'));
+}
+
 public function create() 
 {
     return view('maintenance/form');
