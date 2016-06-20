@@ -45,7 +45,6 @@ class RoomDrawController extends Controller
             $room = Roomdraw::find($roomid);
             $roomcurrentuser = $room -> user_id;
         }
-
         //Bid count of current bidder
         $bidcount = $bidder -> bidcount;
 
@@ -60,6 +59,7 @@ class RoomDrawController extends Controller
             $bidder -> bidcount +=1;
             $bidder -> biddedRoom = '';
             $bidder -> save();
+
 
             $room -> user_id = 0;
             $room -> name = '';

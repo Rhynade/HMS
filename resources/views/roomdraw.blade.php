@@ -24,9 +24,10 @@
 					<td>
 						<form method="POST" action="/roomdraw">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
-						<input type="hidden" name="identity" value="{{ $unit }}">
+						<input type="hidden" name="id" value="{{ $unit }}">
 						<input type="hidden" name="method" value="UNBID">
 						<button type="submit" class="btn btn-danger">Unbid</button>
+						</form>
 					</td>
 
 					@else
