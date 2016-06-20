@@ -5,7 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Announcement extends Model
-{
+{   
+    protected $table = 'maintenances';
     protected $fillable = ['title','body'];
 
     public function by(User $user){

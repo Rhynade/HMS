@@ -18,8 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('currentRoom')->default('F411');
-            $table->string('defaultRoom')->default('Nil');
+            $table->string('biddedRoom')->default('');
             $table->integer('points')->default(68);
+            $table->integer('bidcount')->default(1);
             $table->rememberToken();
             $table->integer('role_id')->default(1);
             $table->timestamps();

@@ -73,7 +73,7 @@
                             <li><a href="{{ url('/maintenance/display') }}">Display</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ url('/room_draw') }}">Room Draw</a></li>
+                    <li><a href="{{ url('/roomdraw') }}">Room Draw</a></li>
 
                     @else 
                     <li><a href="{{ url('/announcement/display') }}">Announcement</a></li>
@@ -88,7 +88,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="{{ url('/room_draw') }}">Room Draw</a></li>
+                    <li><a href="{{ url('/roomdraw') }}">Room Draw</a></li>
                     @endif
 
                     @endif

@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 Route::auth();
 
+//Announcements
 Route::get('/announcement/display', 'AnnouncementController@index');
 
 Route::get('/announcement/form', 'AnnouncementController@create');
@@ -25,6 +26,7 @@ Route::get('/announcement/form', 'AnnouncementController@create');
 Route::post('/announcement/display', 'AnnouncementController@publish');
 
 
+//Maintenance
 Route::get('/maintenance/display', 'MaintenanceController@index');
 
 Route::get('/maintenance/form', 'MaintenanceController@create');
@@ -33,5 +35,7 @@ Route::post('/maintenance/received', 'MaintenanceController@publish');
 
 
 
+//RoomDraw
+Route::get('/roomdraw', 'RoomDrawController@index');
 
-Route::get('/room_draw', 'RoomDrawController@index');
+Route::post('/roomdraw', 'RoomDrawController@bid');
