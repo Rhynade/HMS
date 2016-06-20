@@ -55,6 +55,7 @@ class RoomDrawController extends Controller
         $bidderpoints = $bidder -> points;
         $currentpoints = $room -> points;
 
+        //If user unbids
         if(isset($method)){
             $bidder -> bidcount +=1;
             $bidder -> biddedRoom = '';
@@ -74,6 +75,7 @@ class RoomDrawController extends Controller
 
         }
 
+        //current room has no bidder
         elseif ($roomcurrentuser == 0 && $bidcount==1){
 
             $room -> user_id = $bidder -> id;
@@ -92,6 +94,7 @@ class RoomDrawController extends Controller
             return view('roomdraw', compact('roomdraws','userid'));
         }
 
+        //Current bidder's points exceeds preivous bidder's points
         elseif( $bidderpoints > $currentpoints && $bidcount==1){
 
             $previousbidder -> bidcount +=1;
@@ -114,24 +117,24 @@ class RoomDrawController extends Controller
 
         }
 
+        //Bidcount exceeded
         elseif ( $bidcount < 1){
 
-            \Session::flash('message', 'You are only entitled to one bid');
-
             $roomdraws = RoomDraw::all();
-
             $userid = $bidder ->id;
+
+            \Session::flash('message', 'You are only entitled to one bid');
             return view('roomdraw', compact('roomdraws','userid'));
         }
 
+        //Current bidder's points lesser than preivous bidder's points
         elseif( $bidderpoints <= $currentpoints) {
 
-            \Session::flash('message', 'Hall points lower than current bidder.');
 
             $roomdraws = RoomDraw::all();
-
             $userid = $bidder -> id;
 
+            \Session::flash('message', 'Hall points lower than current bidder.');
             return view('roomdraw', compact('roomdraws', 'userid'));
         }
 
