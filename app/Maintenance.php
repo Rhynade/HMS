@@ -36,4 +36,9 @@ class Maintenance extends Model
     	
     	return $this->save($report);
     }
+
+    public function comments() {
+
+        return $this->hasMany(Comments::class);
+    }
 }

@@ -7,7 +7,7 @@ use App\User;
 use Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests;
-
+use App\Comments;
 
 class MaintenanceController extends Controller
 {
@@ -65,7 +65,10 @@ public function publish(Request $request)
 
 public function show(Maintenance $report) {
 
-    return view('maintenance/single', compact('report'));
+    
+    $comments = Comments::where('maintenance_id', '=', $report->id)->get();
+
+    return view('maintenance/single', compact('report','comments'));
 }
 
 public function create() 

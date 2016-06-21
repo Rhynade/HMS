@@ -35,6 +35,10 @@ Route::post('/maintenance/received', 'MaintenanceController@publish');
 
 Route::get('/maintenance/display/{report}', 'MaintenanceController@show');
 
+//Commments
+
+Route::post('/maintenance/display/{report}', 'CommentsController@store');
+
 
 //RoomDraw
 Route::get('/roomdraw', 'RoomDrawController@index');
