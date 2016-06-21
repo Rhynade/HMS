@@ -57,7 +57,7 @@ class RoomDrawController extends Controller
 
         //If user unbids
         if(isset($method)){
-            $bidder -> bidcount +=1;
+            $bidder -> bidcount = 1;
             $bidder -> biddedRoom = '';
             $bidder -> save();
 
@@ -70,7 +70,7 @@ class RoomDrawController extends Controller
             $userid = $bidder -> id;
             $roomdraws = Roomdraw::all();
 
-            \Session::flash('message', 'Previous bid has been withdrawn. Please make a new bid');
+            \Session::flash('message', 'Previous bid has been withdrawn. Please make a new bid.');
             return view('roomdraw', compact('roomdraws','userid'));
 
         }
@@ -81,7 +81,7 @@ class RoomDrawController extends Controller
             $room -> user_id = $bidder -> id;
             $room -> name = $bidder -> name;
             $room -> points = $bidder -> points;
-            $bidder -> bidcount -=1;
+            $bidder -> bidcount = 0;
             $bidder -> biddedRoom = $room -> unit;
 
             $room -> save();
@@ -97,12 +97,12 @@ class RoomDrawController extends Controller
         //Current bidder's points exceeds preivous bidder's points
         elseif( $bidderpoints > $currentpoints && $bidcount==1){
 
-            $previousbidder -> bidcount +=1;
+            $previousbidder -> bidcount = 1;
             $previousbidder -> biddedRoom = '';
             $room -> user_id = $bidder -> id;
             $room -> name = $bidder -> name;
             $room -> points = $bidderpoints;
-            $bidder -> bidcount -=1;
+            $bidder -> bidcount = 0;
             $bidder -> biddedRoom = $room -> unit;
 
             $room -> save();
@@ -112,7 +112,7 @@ class RoomDrawController extends Controller
 
             $roomdraws = RoomDraw::all();
 
-            \Session::flash('message', 'Room successfully bidded');
+            \Session::flash('message', 'Room successfully bidded.');
             return view('roomdraw', compact('roomdraws','userid'));
 
         }
@@ -123,7 +123,7 @@ class RoomDrawController extends Controller
             $roomdraws = RoomDraw::all();
             $userid = $bidder ->id;
 
-            \Session::flash('message', 'You are only entitled to one bid');
+            \Session::flash('message', 'You are only entitled to one bid.');
             return view('roomdraw', compact('roomdraws','userid'));
         }
 
@@ -134,7 +134,7 @@ class RoomDrawController extends Controller
             $roomdraws = RoomDraw::all();
             $userid = $bidder -> id;
 
-            \Session::flash('message', 'Hall points lower than current bidder.');
+            \Session::flash('message', 'Insufficent hall points.');
             return view('roomdraw', compact('roomdraws', 'userid'));
         }
 

@@ -11,6 +11,7 @@
 				<tr>
 					<th>Room Number</th>
 					<th>Name</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>

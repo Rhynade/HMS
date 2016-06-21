@@ -7,9 +7,10 @@
 		
 		@foreach ($announcements->all() as $announcement)
 		<h4>{{ $announcement->title }}</h4>
+			<?php $body = $announcement -> body ?>
 			<div class="panel panel-default">
 					<div class="panel-body">
-					<p>{{ $announcement -> body }}</p>
+					<p>{!! nl2br(e($body)) !!}</p>
 					<br>
 					<p>{{ $announcement -> username }}</p>
 					<p>{{ $announcement -> created_at }}</p>
