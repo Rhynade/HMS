@@ -7,6 +7,7 @@ use App\User;
 use Auth;
 use App\Http\Requests;
 use App\roomdraw;
+use Mail;
 
 class RoomDrawController extends Controller
 {
@@ -21,11 +22,17 @@ class RoomDrawController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        $roomdraws = RoomDraw::all();
-        $user = Auth::user();
-        $userid = $user -> id;
-        return view('roomdraw', compact('roomdraws','userid'));
+    {   
+        if (Auth::user()->role_id == 7){
+            $roomdraws = Roomdraw::all();
+            return view('roomdrawadmin', compact('roomdraws'));
+        }
+        else{
+            $roomdraws = RoomDraw::all();
+            $user = Auth::user();
+            $userid = $user -> id;
+            return view('roomdraw', compact('roomdraws','userid'));
+        }
     }
 
     public function bid(Request $request)
@@ -104,6 +111,8 @@ class RoomDrawController extends Controller
             $room -> points = $bidderpoints;
             $bidder -> bidcount = 0;
             $bidder -> biddedRoom = $room -> unit;
+
+            
 
             $room -> save();
             $previousbidder -> save();

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
 	@if(Session::has('message'))
 	<p class="alert alert-info">{{ Session::get('message') }}</p>
@@ -11,6 +12,7 @@
 				<tr>
 					<th>Room Number</th>
 					<th>Name</th>
+					<th>Points</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -21,6 +23,7 @@
 				<tr>
 					<th scope="row">{{ $roomdraw-> unit }}</th>
 					<td>{{ $roomdraw -> name }}</td>
+					<td>{{ $roomdraw -> points}}</td>
 					@if ($userid == $currentid)
 					<td>
 						<form method="POST" action="/roomdraw">
@@ -41,7 +44,6 @@
 					</td>
 
 					@endif
-
 
 				</tr>
 				@endforeach
