@@ -74,6 +74,7 @@
                         </ul>
                     </li>
                     <li><a href="{{ url('/roomdraw') }}">Room Draw</a></li>
+                    <li><a href="{{ url('/importExport') }}">Import Excel</a></li>
 
                     @else 
                     <li><a href="{{ url('/announcement/display') }}">Announcement</a></li>
@@ -89,6 +90,7 @@
                     </li>
 
                     <li><a href="{{ url('/roomdraw') }}">Room Draw</a></li>
+
                     @endif
 
                     @endif

@@ -44,3 +44,11 @@ Route::post('/maintenance/display/{report}', 'CommentsController@store');
 Route::get('/roomdraw', 'RoomDrawController@index');
 
 Route::post('/roomdraw', 'RoomDrawController@bid');
+
+
+//Import & Export Excel
+Route::get('importExport','ExcelController@importExport');
+
+Route::get('downloadExcel/{type}','ExcelController@downloadExcel');
+
+Route::post('importExcel', 'ExcelController@importExcel');
