@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Input;
 use App\file;
+use App\RoomDraw;
 use DB;
 use Excel;
 
