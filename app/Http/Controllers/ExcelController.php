@@ -19,10 +19,10 @@ class ExcelController extends Controller
 
     public function downloadExcel($type)
     {
-    	$data = file::get() ->toArray();
-    	return Excel::create('example',function($excel) use ($data) {
+    	$data = RoomDraw::get() ->toArray();
+    	return Excel::create('roomdrawresults',function($excel) use ($data) {
     		$excel -> sheet('mySheet', function($sheet) use ($data) {
-    			$excel->fromArray($data);
+    			$sheet->fromArray($data);
     		});
     	})->download($type);
     }
