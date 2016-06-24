@@ -12,10 +12,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700">
 
     <!-- Styles -->
+   
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
 
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
 
     <style>
         body {
@@ -65,16 +68,8 @@
                             <li><a href="{{ url('/announcement/display') }}">Display</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
 
-                        <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'
-                        >Maintenance Report</a>
-                        <ul class="dropdown-menu">
-
-                            <li><a href="{{ url('/maintenance/form') }}">Submit</a></li>
-                            <li><a href="{{ url('/maintenance/display') }}">Display</a></li>
-                        </ul>
-                    </li>
+                    <li><a href="{{ url('/maintenance/display') }}">Maintenance Report</a></li>
                     <li><a href="{{ url('/roomdraw') }}">Room Draw</a></li>
                     <li><a href="{{ url('/importExport') }}">Import Excel</a></li>
 
