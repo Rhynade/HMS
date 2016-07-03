@@ -20,7 +20,7 @@ class ExcelController extends Controller
     public function downloadExcel($type)
     {
     	$data = RoomDraw::get() ->toArray();
-    	return Excel::create('roomdrawresults',function($excel) use ($data) {
+    	return Excel::create('Roomdrawresults',function($excel) use ($data) {
     		$excel -> sheet('mySheet', function($sheet) use ($data) {
     			$sheet->fromArray($data);
     		});
