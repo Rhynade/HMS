@@ -25,6 +25,11 @@ Route::get('/announcement/form', 'AnnouncementController@create');
 
 Route::post('/announcement/display', 'AnnouncementController@publish');
 
+Route::get('/announcement/{announcement}/edit', 'AnnouncementController@edit');
+
+Route::patch('/announcement/{announcement}', 'AnnouncementController@update');
+
+Route::get('/announcement/{announcement}/delete', 'AnnouncementController@delete');
 
 //Maintenance
 Route::get('/maintenance/display', 'MaintenanceController@index');

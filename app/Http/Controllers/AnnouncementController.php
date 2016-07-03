@@ -25,7 +25,7 @@ class AnnouncementController extends Controller
      */
     public function index()
     {
-        $announcements = Announcement::all()->sortByDesc('created_at')->take(5);
+        $announcements = Announcement::all()->sortByDesc('created_at');
         foreach($announcements as $announcement){
             $announcement->username = $announcement->username();
         }
@@ -59,5 +59,36 @@ class AnnouncementController extends Controller
         return view('announcement/form');
     }
 
+    public function edit(Announcement $announcement) {
+
+        return view('Announcement.edit', compact('announcement'));
+    }
+
+    public function update(Request $request, Announcement $announcement) {
+
+
+        $announcement->update($request->all());
+
+        $announcements = Announcement::all()->sortByDesc('created_at');
+
+        foreach($announcements as $announcement){
+            $announcement->username = $announcement->username();
+        }
+        return view('announcement/display',compact('announcements'));
+
+    }
+
+     public function delete(Announcement $announcement) {
+
+        $announcement->delete();
+        
+        $announcements = Announcement::all()->sortByDesc('created_at');
+
+        foreach($announcements as $announcement){
+            $announcement->username = $announcement->username();
+        }
+        return view('announcement/display',compact('announcements'));
+
+    }
 
 }
