@@ -20,8 +20,6 @@
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 
     <!-- Script -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
     <style>
         body {
@@ -83,7 +81,6 @@
                         <a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button'
                         >Maintenance Report</a>
                         <ul class="dropdown-menu">
-
                             <li><a href="{{ url('/maintenance/form') }}">Submit</a></li>
                             <li><a href="{{ url('/maintenance/display') }}">Display</a></li>
                         </ul>

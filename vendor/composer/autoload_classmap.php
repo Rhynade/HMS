@@ -2278,8 +2278,6 @@ return array(
     'Prophecy\\Prophet' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Prophet.php',
     'Prophecy\\Util\\ExportUtil' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Util/ExportUtil.php',
     'Prophecy\\Util\\StringUtil' => $vendorDir . '/phpspec/prophecy/src/Prophecy/Util/StringUtil.php',
-<<<<<<< Updated upstream
-=======
     'Psr\\Http\\Message\\MessageInterface' => $vendorDir . '/psr/http-message/src/MessageInterface.php',
     'Psr\\Http\\Message\\RequestInterface' => $vendorDir . '/psr/http-message/src/RequestInterface.php',
     'Psr\\Http\\Message\\ResponseInterface' => $vendorDir . '/psr/http-message/src/ResponseInterface.php',
@@ -2287,7 +2285,6 @@ return array(
     'Psr\\Http\\Message\\StreamInterface' => $vendorDir . '/psr/http-message/src/StreamInterface.php',
     'Psr\\Http\\Message\\UploadedFileInterface' => $vendorDir . '/psr/http-message/src/UploadedFileInterface.php',
     'Psr\\Http\\Message\\UriInterface' => $vendorDir . '/psr/http-message/src/UriInterface.php',
->>>>>>> Stashed changes
     'Psr\\Log\\AbstractLogger' => $vendorDir . '/psr/log/Psr/Log/AbstractLogger.php',
     'Psr\\Log\\InvalidArgumentException' => $vendorDir . '/psr/log/Psr/Log/InvalidArgumentException.php',
     'Psr\\Log\\LogLevel' => $vendorDir . '/psr/log/Psr/Log/LogLevel.php',
@@ -2631,10 +2628,7 @@ return array(
     'Symfony\\Component\\HttpFoundation\\ApacheRequest' => $vendorDir . '/symfony/http-foundation/ApacheRequest.php',
     'Symfony\\Component\\HttpFoundation\\BinaryFileResponse' => $vendorDir . '/symfony/http-foundation/BinaryFileResponse.php',
     'Symfony\\Component\\HttpFoundation\\Cookie' => $vendorDir . '/symfony/http-foundation/Cookie.php',
-<<<<<<< Updated upstream
-=======
     'Symfony\\Component\\HttpFoundation\\Exception\\ConflictingHeadersException' => $vendorDir . '/symfony/http-foundation/Exception/ConflictingHeadersException.php',
->>>>>>> Stashed changes
     'Symfony\\Component\\HttpFoundation\\ExpressionRequestMatcher' => $vendorDir . '/symfony/http-foundation/ExpressionRequestMatcher.php',
     'Symfony\\Component\\HttpFoundation\\FileBag' => $vendorDir . '/symfony/http-foundation/FileBag.php',
     'Symfony\\Component\\HttpFoundation\\File\\Exception\\AccessDeniedException' => $vendorDir . '/symfony/http-foundation/File/Exception/AccessDeniedException.php',
@@ -2741,10 +2735,7 @@ return array(
     'Symfony\\Component\\HttpKernel\\EventListener\\SurrogateListener' => $vendorDir . '/symfony/http-kernel/EventListener/SurrogateListener.php',
     'Symfony\\Component\\HttpKernel\\EventListener\\TestSessionListener' => $vendorDir . '/symfony/http-kernel/EventListener/TestSessionListener.php',
     'Symfony\\Component\\HttpKernel\\EventListener\\TranslatorListener' => $vendorDir . '/symfony/http-kernel/EventListener/TranslatorListener.php',
-<<<<<<< Updated upstream
-=======
     'Symfony\\Component\\HttpKernel\\EventListener\\ValidateRequestListener' => $vendorDir . '/symfony/http-kernel/EventListener/ValidateRequestListener.php',
->>>>>>> Stashed changes
     'Symfony\\Component\\HttpKernel\\Event\\FilterControllerEvent' => $vendorDir . '/symfony/http-kernel/Event/FilterControllerEvent.php',
     'Symfony\\Component\\HttpKernel\\Event\\FilterResponseEvent' => $vendorDir . '/symfony/http-kernel/Event/FilterResponseEvent.php',
     'Symfony\\Component\\HttpKernel\\Event\\FinishRequestEvent' => $vendorDir . '/symfony/http-kernel/Event/FinishRequestEvent.php',

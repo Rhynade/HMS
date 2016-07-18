@@ -25,7 +25,43 @@ class RoomDrawController extends Controller
     {   
         if (Auth::user()->role_id == 7){
             $roomdraws = Roomdraw::all();
-            return view('roomdrawadmin', compact('roomdraws'));
+            $A = array();
+            $B = array();
+            $C = array();
+            $D = array();
+            $E = array();
+            $F = array();
+            $G = array();
+            $H = array();
+            foreach ($roomdraws as $roomdraw ) {
+                if ($roomdraw->unit[0] == 'A'){
+                    $A[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='B'){
+                    $B[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='C'){
+                    $C[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='D'){
+                    $D[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='E'){
+                    $E[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='F'){
+                    $F[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='G'){
+                    $G[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='H'){
+                    $H[] = $roomdraw;
+                }
+
+            }
+
+            return view('roomdrawadmin', compact('A','B','C','D','E','F','G','H'));
         }
         else{
             $roomdraws = RoomDraw::all();
@@ -113,7 +149,7 @@ class RoomDrawController extends Controller
             $roomdraws = Roomdraw::all();
 
             \Session::flash('message', 'Previous bid has been withdrawn. Please make a new bid.');
-            return view('roomdraw', compact('roomdraws','userid'));
+            return $this->index();
 
         }
 
@@ -133,7 +169,7 @@ class RoomDrawController extends Controller
             $roomdraws = Roomdraw::all();
 
             \Session::flash('message', 'Room successfully bidded.');
-            return view('roomdraw', compact('roomdraws','userid'));
+            return $this->index();
         }
 
         //Current bidder's points exceeds preivous bidder's points
@@ -167,7 +203,7 @@ class RoomDrawController extends Controller
             });
 
             \Session::flash('message', 'Room successfully bidded.');
-            return view('roomdraw', compact('roomdraws','userid'));
+            return $this->index();
 
         }
 
@@ -178,7 +214,7 @@ class RoomDrawController extends Controller
             $userid = $bidder ->id;
 
             \Session::flash('message', 'You are only entitled to one bid.');
-            return view('roomdraw', compact('roomdraws','userid'));
+            return $this->index();
         }
 
         //Current bidder's points lesser than preivous bidder's points
@@ -189,7 +225,7 @@ class RoomDrawController extends Controller
             $userid = $bidder -> id;
 
             \Session::flash('message', 'Insufficent hall points.');
-            return view('roomdraw', compact('roomdraws', 'userid'));
+            return $this->index();
         }
 
     }
