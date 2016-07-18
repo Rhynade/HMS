@@ -31,7 +31,42 @@ class RoomDrawController extends Controller
             $roomdraws = RoomDraw::all();
             $user = Auth::user();
             $userid = $user -> id;
-            return view('roomdraw', compact('roomdraws','userid'));
+            $A = array();
+            $B = array();
+            $C = array();
+            $D = array();
+            $E = array();
+            $F = array();
+            $G = array();
+            $H = array();
+            foreach ($roomdraws as $roomdraw ) {
+                if ($roomdraw->unit[0] == 'A'){
+                    $A[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='B'){
+                    $B[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='C'){
+                    $C[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='D'){
+                    $D[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='E'){
+                    $E[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='F'){
+                    $F[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='G'){
+                    $G[] = $roomdraw;
+                }
+                elseif ($roomdraw->unit[0] =='H'){
+                    $H[] = $roomdraw;
+                }
+
+            }
+            return view('roomdraw', compact('A','B','C','D','E','F','G','H','userid'));
         }
     }
 
@@ -120,6 +155,16 @@ class RoomDrawController extends Controller
             $userid = $bidder -> id;
 
             $roomdraws = RoomDraw::all();
+
+            Mail::send('emails.test',['user'=> $previousbidder],function($message) use ($previousbidder)
+            {
+
+
+            $message->from('admin@KE7.com');
+            //change $previousbidder->email;
+            $message->to('e0002985@u.nus.edu', $previousbidder->name)->subject('You have been outbidded');
+            
+            });
 
             \Session::flash('message', 'Room successfully bidded.');
             return view('roomdraw', compact('roomdraws','userid'));
