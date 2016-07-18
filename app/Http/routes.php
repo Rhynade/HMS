@@ -34,11 +34,17 @@ Route::get('/announcement/{announcement}/delete', 'AnnouncementController@delete
 //Maintenance
 Route::get('/maintenance/display', 'MaintenanceController@index');
 
+Route::get('/maintenance/{report}','MaintenanceController@index1');
+
+Route::patch('/maintenance/display', 'MaintenanceController@update');
+
 Route::get('/maintenance/form', 'MaintenanceController@create');
 
 Route::post('/maintenance/received', 'MaintenanceController@publish');
 
 Route::get('/maintenance/display/{report}', 'MaintenanceController@show');
+
+
 
 //Commments
 

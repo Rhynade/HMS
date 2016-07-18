@@ -19,6 +19,7 @@ class CreateMaintenanceTable extends Migration
             $table->text('title');
             $table->text('faultyArea');
             $table->text('description');
+            $table->string('status')->default('Received');
             $table->text('comments');
             $table->timestamps();
         });

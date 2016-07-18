@@ -48,8 +48,19 @@ class MaintenanceController extends Controller
 
 }
 
+public function index1(Maintenance $report)
+{  
+    $re = Maintenance::find($report->id);
+    $user = User::find($report->user_id);
+    $currentRoom = $user -> currentRoom;
+    $username = $user -> name;
+    return view('maintenance/update',compact('re','currentRoom','username'));
+
+}
+
+
 public function publish(Request $request) 
-{
+{   
     $user = Auth::user();
 
     $report = new Maintenance;
@@ -65,7 +76,6 @@ public function publish(Request $request)
 
 public function show(Maintenance $report) {
 
-    
     $comments = Comments::where('maintenance_id', '=', $report->id)->get();
 
     return view('maintenance/single', compact('report','comments'));
@@ -74,5 +84,17 @@ public function show(Maintenance $report) {
 public function create() 
 {
     return view('maintenance/form');
+}
+
+public function update(Request $request) {  
+    //$report->status = $request->status;
+    $report = Maintenance::find($request->report);
+    $report -> status = $request -> status;
+    $report -> save();
+    
+
+    return $this->index();
+
+
 }
 }

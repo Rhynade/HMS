@@ -13,6 +13,7 @@
 				<th>Room Number</th>
 				<th>Title</th>
 				<th>Date</th>
+				<th>Status</th>
 			</tr>
 		</thead>
 		
@@ -24,6 +25,15 @@
 				<td>{{ $report -> currentRoom }}</td>
 				<td><a href="/maintenance/display/{{$report->id}}">{{ $report -> title }}</a></td>
 				<td>{{ $report -> created_at -> format('Y-m-d')}}</td>
+				
+				 @if(Auth::user()->role_id==7)
+				<td>{{ $report->status }}<a href="/maintenance/{{$report->id}}" class="pull-right"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+
+				</td>
+				@else
+				<td>{{ $report->status}}</td>
+
+				@endif
 			</tr>
 		</tbody>
 
