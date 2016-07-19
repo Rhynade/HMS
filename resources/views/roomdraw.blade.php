@@ -17,7 +17,7 @@
     <li><a data-toggle="pill" href="#F">F</a></li>
     <li><a data-toggle="pill" href="#G">G</a></li>
     <li><a data-toggle="pill" href="#H">H</a></li>
-  	</ul>
+  </ul>
 
 
 
