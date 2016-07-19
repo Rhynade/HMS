@@ -35,7 +35,10 @@ Route::patch('/announcement/{announcement}', 'AnnouncementController@update');
 Route::get('/announcement/{announcement}/delete', 'AnnouncementController@delete');
 
 //Maintenance
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/master
 Route::get('/maintenance/form', 'MaintenanceController@create');
 
 Route::get('/maintenance/display', 'MaintenanceController@index');
